@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://slpio.com/sitemap.xml
+Sitemap: https://slpio10.github.io/slpio.com/sitemap.xml
