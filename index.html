@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Calculator - Free Sleep Cycle Calculator | SLPIO</title>
+<meta name="description" content="Use SLPIO's free sleep calculator to find the best bedtime or wake-up time based on 90-minute sleep cycles. Try this fast, accurate sleep cycle calculator now.">
+<meta name="keywords" content="sleep calculator, sleep calc, sleep cycle calculator, sleepcalculator, calculator sleep, bedtime calculator, wake up time calculator">
+<meta name="author" content="SLPIO">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://slpio.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sleep Calculator - Free Sleep Cycle Calculator | SLPIO">
+<meta property="og:description" content="Find your ideal bedtime or wake-up time with SLPIO's free sleep calculator, built on 90-minute sleep cycle science.">
+<meta property="og:url" content="https://slpio.com/">
+<meta property="og:site_name" content="SLPIO">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sleep Calculator - Free Sleep Cycle Calculator | SLPIO">
+<meta name="twitter:description" content="Find your ideal bedtime or wake-up time with SLPIO's free sleep calculator, built on 90-minute sleep cycle science.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23000'/%3E%3Ccircle cx='58' cy='42' r='26' fill='%235B7FFF'/%3E%3Ccircle cx='68' cy='34' r='22' fill='%23000'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SLPIO Sleep Calculator",
+  "alternateName": ["SLPIO", "Sleep Calc"],
+  "url": "https://slpio.com/",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "description": "A free sleep calculator and sleep cycle calculator that recommends the best bedtimes or wake-up times based on 90-minute sleep cycles.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": ["Sleep cycle calculator", "BMI calculator", "Calorie calculator", "Water intake calculator", "Age calculator"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SLPIO",
+  "url": "https://slpio.com/",
+  "logo": "https://slpio.com/favicon.svg",
+  "description": "SLPIO builds free, easy-to-use health calculators, starting with a sleep cycle calculator that helps people find their ideal bedtime and wake-up time.",
+  "email": "kiddosiam4@gmail.com"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a sleep calculator do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A sleep calculator estimates the best time to go to bed or wake up by counting in 90-minute sleep cycles, so you're more likely to wake up between cycles instead of in the middle of deep sleep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this sleep cycle calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This sleep cycle calculator uses the widely cited 90-minute average cycle length plus a 14-minute average time to fall asleep. Actual cycle length varies by person, so treat the results as a strong starting point rather than an exact science."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this sleep calculator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. SLPIO's sleep calculator, along with the BMI, calorie, water intake, and age calculators on the same page, are completely free with no sign-up required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many sleep cycles should I aim for each night?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most adults feel most rested after 5 to 6 full sleep cycles, which works out to roughly 7.5 to 9 hours of sleep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the sleep calculator store my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The calculator runs entirely in your browser, and the time you enter is never sent to or stored on a server."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  .skip-link{
+    position:absolute;
+    top:-100px; left:12px;
+    z-index:100;
+    background:#fff; color:#000;
+    padding:12px 18px;
+    border-radius:8px;
+    font-family:'Inter', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    transition: top .2s ease;
+  }
+  .skip-link:focus{ top:12px; }
+
+  /* pause decorative animations when tab is hidden — saves battery/CPU */
+  body.bg-paused .ocean-current,
+  body.bg-paused .plankton,
+  body.bg-paused .mote{
+    animation-play-state: paused;
+  }
+  :root{
+    --bg: #000000;
+    --card: #121212;
+    --card-hi: #1A1A1A;
+    --border: #2A2A2A;
+    --border-soft: #1F1F1F;
+    --text: #F2F2F0;
+    --text-dim: #8C8C8C;
+    --text-faint: #555555;
+    --accent: #5B7FFF;
+    --accent-glow: rgba(91,127,255,0.35);
+    --good: #34D399;
+    --good-glow: rgba(52,211,153,0.25);
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+  html{ background: var(--bg); }
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 700px 400px at 50% -5%, rgba(91,127,255,0.10), transparent 60%),
+      radial-gradient(ellipse 500px 300px at 85% 15%, rgba(52,211,153,0.06), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .noise{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    opacity:0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .orb-scene{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    overflow:hidden;
+    contain: strict;
+    background:
+      radial-gradient(ellipse 100% 60% at 50% 100%, rgba(10,60,70,0.5) 0%, transparent 70%),
+      linear-gradient(180deg, #000000 0%, #010a10 55%, #041620 100%);
+  }
+  .ocean-current{
+    position:absolute;
+    left:-30%; width:160%;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.4;
+    mix-blend-mode: screen;
+    will-change: transform;
+    contain: layout paint;
+  }
+  .current1{
+    bottom: -20%; height: 60%;
+    background: linear-gradient(100deg, transparent 10%, rgba(34,211,238,0.35) 40%, rgba(20,184,166,0.3) 60%, transparent 90%);
+    animation: currentDrift1 24s ease-in-out infinite;
+  }
+  .current2{
+    bottom: -10%; height: 45%;
+    background: linear-gradient(95deg, transparent 15%, rgba(45,212,191,0.3) 45%, rgba(59,180,255,0.25) 65%, transparent 90%);
+    animation: currentDrift2 30s ease-in-out infinite;
+    opacity:0.3;
+  }
+  @keyframes currentDrift1{
+    0%,100%{ transform: translateX(-5%) scaleY(1); }
+    50%{ transform: translateX(5%) scaleY(1.15); }
+  }
+  @keyframes currentDrift2{
+    0%,100%{ transform: translateX(4%) scaleY(1); }
+    50%{ transform: translateX(-6%) scaleY(1.1); }
+  }
+  .plankton{
+    position:absolute;
+    bottom: -10px;
+    border-radius:50%;
+    background: radial-gradient(circle, #7DF9E8 0%, #22D3EE 55%, transparent 75%);
+    animation: planktonRise linear infinite;
+  }
+  @keyframes planktonRise{
+    0%{ transform: translateY(0) translateX(0); opacity:0; }
+    12%{ opacity: .9; }
+    88%{ opacity: .5; }
+    100%{ transform: translateY(-105vh) translateX(var(--drift, 20px)); opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ocean-current, .plankton{ animation: none; }
+  }
+
+  .motes{
+    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+    contain: strict;
+  }
+  .mote{
+    position:absolute;
+    bottom:-10px;
+    width: 2px; height:2px;
+    background: rgba(180,195,255,0.55);
+    border-radius:50%;
+    animation: moteRise linear infinite;
+  }
+  @keyframes moteRise{
+    0%{ transform: translateY(0) translateX(0); opacity:0; }
+    10%{ opacity: .7; }
+    90%{ opacity: .4; }
+    100%{ transform: translateY(-110vh) translateX(var(--drift, 20px)); opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .orb, .mote{ animation: none; }
+  }
+
+  /* Boot intro — ocean / bioluminescent theme */
+  #introScreen{
+    position:fixed; inset:0; z-index:50;
+    background: linear-gradient(180deg, #000000 0%, #01141c 60%, #032430 100%);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .intro-vignette{
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 50% 55%, transparent 0%, rgba(0,10,15,0.5) 65%, #000 100%);
+    animation: vignetteBreathe 2.6s ease forwards;
+  }
+  @keyframes vignetteBreathe{
+    0%{ opacity:0; }
+    30%{ opacity:1; }
+    100%{ opacity:1; }
+  }
+  .intro-plankton{
+    position:absolute;
+    bottom: 46%;
+    border-radius:50%;
+    background: radial-gradient(circle, #B6FFF3 0%, #22D3EE 55%, transparent 75%);
+    box-shadow: 0 0 10px 3px rgba(45,212,191,0.8);
+    opacity:0;
+    animation: introPlanktonRise 2s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  @keyframes introPlanktonRise{
+    0%{ transform: translateY(140px) scale(.4); opacity:0; }
+    25%{ opacity:1; }
+    70%{ opacity:.9; }
+    100%{ transform: translateY(0) scale(1); opacity:0; }
+  }
+  .intro-ring{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    border-radius:50%;
+    border: 1px solid rgba(45,212,191,0.5);
+    opacity:0;
+    animation: ringExpand 2s cubic-bezier(.15,.7,.3,1) forwards;
+  }
+  .ring1{ animation-delay: .35s; }
+  .ring2{ animation-delay: .6s; }
+  @keyframes ringExpand{
+    0%{ width:4px; height:4px; opacity:.9; border-width:1.5px; }
+    100%{ width: 380px; height:380px; opacity:0; border-width:.5px; }
+  }
+  .intro-core{
+    position:relative;
+    width: 10px; height:10px;
+    border-radius:50%;
+    background: radial-gradient(circle, #E7FFFB 0%, #5EEAD4 40%, transparent 75%);
+    box-shadow: 0 0 20px 6px rgba(45,212,191,0.75);
+    animation: coreGrow 2.5s cubic-bezier(.16,.84,.24,1) forwards;
+    animation-delay: .3s;
+  }
+  .intro-core::before{
+    content:"";
+    position:absolute; top:50%; left:50%;
+    width: 3px; height: 3px;
+    background:#F0FFFC;
+    border-radius:50%;
+    transform: translate(-50%,-50%);
+    box-shadow:
+      0 0 40px 10px rgba(224,255,250,0.85),
+      0 0 90px 30px rgba(45,212,191,0.45);
+    animation: flarePulse 2.5s cubic-bezier(.16,.84,.24,1) forwards;
+    animation-delay: .3s;
+  }
+  @keyframes flarePulse{
+    0%{ opacity:0; transform: translate(-50%,-50%) scale(0.3); }
+    30%{ opacity:1; transform: translate(-50%,-50%) scale(3); }
+    55%{ opacity:.7; transform: translate(-50%,-50%) scale(1.4); }
+    100%{ opacity:0; transform: translate(-50%,-50%) scale(1); }
+  }
+  @keyframes coreGrow{
+    0%{ width:6px; height:6px; box-shadow: 0 0 10px 2px rgba(45,212,191,0.55); opacity:.5;}
+    32%{ width: 100px; height:100px; box-shadow: 0 0 90px 34px rgba(45,212,191,0.5); opacity:1;}
+    58%{ width: 48px; height:48px; box-shadow: 0 0 50px 16px rgba(45,212,191,0.65); opacity:1;}
+    100%{ width: 30px; height:30px; box-shadow: 0 0 30px 8px rgba(45,212,191,0.45); opacity:0; }
+  }
+  .intro-title{
+    position:absolute;
+    font-family:'Inter', sans-serif;
+    font-weight:800;
+    font-size: 20px;
+    letter-spacing: .3em;
+    color:#fff;
+    text-transform:uppercase;
+    opacity:0;
+    animation: titleFade 2.4s ease forwards;
+    animation-delay: .75s;
+    background: linear-gradient(100deg, #fff 40%, #5EEAD4 50%, #fff 60%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @keyframes titleFade{
+    0%{ opacity:0; transform: scale(.9); letter-spacing:.5em; background-position: 100% 0; }
+    30%{ opacity:1; transform: scale(1); letter-spacing:.3em; }
+    75%{ opacity:1; background-position: -100% 0; }
+    100%{ opacity:0; background-position: -100% 0; }
+  }
+  #introScreen.hide{
+    animation: introOut .6s cubic-bezier(.4,0,1,1) forwards;
+    pointer-events:none;
+  }
+  @keyframes introOut{
+    0%{ opacity:1; transform: scale(1); }
+    100%{ opacity:0; transform: scale(1.04); }
+  }
+
+  .wrap{ opacity:0; }
+  .wrap.reveal{ opacity:1; }
+  .wrap.reveal > header,
+  .wrap.reveal main > *{
+    animation: sectionIn .9s cubic-bezier(.16,.9,.2,1) forwards;
+  }
+  .wrap.reveal > header{ animation-delay: .05s; }
+  .wrap.reveal main > .tabs{ animation-delay: .18s; }
+  .wrap.reveal main > .card{ animation-delay: .3s; }
+  .wrap.reveal main > .list-label{ animation-delay: .42s; }
+  .wrap.reveal main > #optionsList{ animation-delay: .5s; }
+  .wrap.reveal main > .note{ animation-delay: .68s; }
+  .wrap.reveal main > .seo-copy{ animation-delay: .8s; }
+  @keyframes sectionIn{
+    0%{ opacity:0; transform: translateY(16px) scale(.97); }
+    100%{ opacity:1; transform: translateY(0) scale(1); }
+  }
+  #optionsList > .option{
+    opacity:0;
+    animation: optionIn .6s cubic-bezier(.16,.9,.2,1) forwards;
+  }
+  .wrap.reveal main > #optionsList{ opacity:1; }
+  @keyframes optionIn{
+    0%{ opacity:0; transform: translateX(-10px); }
+    100%{ opacity:1; transform: translateX(0); }
+  }
+  .wrap{
+    position:relative; z-index:1;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 56px 20px 60px;
+  }
+  header{
+    text-align:center;
+    margin-bottom: 30px;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--text-dim);
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .badge .dot{
+    width:6px; height:6px; border-radius:50%;
+    background: var(--good);
+    box-shadow: 0 0 8px var(--good-glow);
+  }
+  h1{
+    font-size: 30px;
+    font-weight:800;
+    margin: 0 0 10px;
+    letter-spacing:-0.03em;
+    background: linear-gradient(180deg, #FFFFFF 0%, #B9B9B9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub{
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height:1.65;
+    margin:0 auto;
+    max-width: 360px;
+  }
+
+  .tabs{
+    display:flex;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 5px;
+    gap:4px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+  }
+  .tabs button{
+    flex:1;
+    padding: 12px 8px;
+    border:none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-dim);
+    font-family:'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight:600;
+    cursor:pointer;
+    position:relative;
+    transition: color .25s ease, transform .15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tabs button:hover{ color: var(--text); }
+  .tabs button:active{ transform: scale(.96); }
+  .tabs button.active{
+    background: linear-gradient(180deg, #33449E 0%, #202B68 100%);
+    color: #fff;
+    box-shadow:
+      0 4px 16px var(--accent-glow),
+      0 1px 0 rgba(255,255,255,0.18) inset,
+      0 -1px 0 rgba(0,0,0,0.2) inset;
+    transform: translateY(-1px);
+    transition: color .25s ease, transform .25s cubic-bezier(.34,1.56,.64,1), background .25s ease, box-shadow .25s ease;
+  }
+  .tabs button.active:active{ transform: translateY(-1px) scale(.97); }
+
+  .card{
+    background: linear-gradient(180deg, var(--card-hi) 0%, var(--card) 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px 22px;
+    text-align:center;
+    margin-bottom: 22px;
+    box-shadow:
+      0 20px 40px -20px rgba(0,0,0,0.6),
+      0 1px 0 rgba(255,255,255,0.04) inset;
+  }
+  .card label{
+    display:block;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  input[type="time"]{
+    background: #0A0A0A;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 30px;
+    font-weight:700;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-align:center;
+    width: 100%;
+    max-width: 210px;
+    color-scheme: dark;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4) inset;
+  }
+  input[type="time"]:focus{ outline: 2px solid var(--accent); outline-offset:2px; }
+
+  .now-btn{
+    margin-top:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background: rgba(91,127,255,0.08);
+    border: 1px solid rgba(91,127,255,0.25);
+    color: var(--accent);
+    font-family:'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight:600;
+    cursor:pointer;
+    padding: 8px 14px;
+    border-radius: 100px;
+    transition: background .2s ease, border-color .2s ease, transform .15s ease;
+  }
+  .now-btn::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent-glow);
+  }
+  .now-btn:hover{
+    background: rgba(91,127,255,0.16);
+    border-color: rgba(91,127,255,0.45);
+  }
+  .now-btn:active{ transform: scale(.96); }
+
+  .list-label{
+    font-size:11px;
+    font-weight:700;
+    color: var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    margin: 0 6px 10px;
+  }
+
+  .option{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 15px 18px;
+    margin-bottom: 8px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .option:hover{ border-color: #3A3A3A; }
+  .option.best{
+    border-color: rgba(52,211,153,0.35);
+    background: linear-gradient(180deg, rgba(52,211,153,0.07) 0%, var(--card) 100%);
+    box-shadow: 0 6px 20px -8px var(--good-glow);
+  }
+  .option .left{
+    display:flex;
+    align-items:baseline;
+    gap:11px;
+  }
+  .option .time{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 19px;
+    font-weight:700;
+    color: #fff;
+  }
+  .option .meta{
+    font-size:12px;
+    color: var(--text-dim);
+  }
+  .option .tag{
+    font-size: 10.5px;
+    font-weight:700;
+    color: var(--good);
+    background: rgba(52,211,153,0.12);
+    border: 1px solid rgba(52,211,153,0.3);
+    padding: 4px 9px;
+    border-radius: 100px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    white-space:nowrap;
+  }
+
+  .note{
+    text-align:center;
+    color: var(--text-dim);
+    font-size: 13px;
+    line-height:1.75;
+    margin: 24px 8px 0;
+  }
+  .note b{ color: var(--text); font-weight:600; }
+
+  .site-footer{
+    position:relative; z-index:1;
+    max-width: 960px;
+    margin: 64px auto 0;
+    padding: 40px 20px 26px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .footer-brand .footer-logo{
+    display:flex; align-items:center; gap:8px;
+    font-weight:800; font-size:15px; color:#fff;
+    margin-bottom:10px;
+  }
+  .dot-logo{
+    width:8px; height:8px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+  .site-logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom: 16px;
+  }
+  .site-logo svg{
+    border-radius: 24%;
+    filter: drop-shadow(0 8px 20px rgba(59,86,220,0.5)) drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+  }
+  .footer-tagline{
+    font-size:12.5px;
+    color: var(--text-dim);
+    line-height:1.6;
+    max-width: 280px;
+    margin:0;
+  }
+  .footer-col h3{
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color: var(--text-faint);
+    margin: 0 0 12px;
+  }
+  .footer-col{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .footer-col a{
+    font-size:15px;
+    font-weight:500;
+    color: var(--text-dim);
+    text-decoration:none;
+    transition: color .15s ease, transform .15s ease;
+    width:fit-content;
+    padding: 4px 0;
+    display:inline-block;
+  }
+  .footer-col a:hover{ color: #fff; transform: translateX(2px); }
+  .footer-col a:active{ transform: translateX(2px) scale(.97); }
+
+  .footer-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border-soft);
+    font-size: 11px;
+    color: var(--text-faint);
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:.03em;
+  }
+
+  @media (max-width: 620px){
+    .footer-top{ grid-template-columns: 1fr 1fr; row-gap:26px; }
+    .footer-brand{ grid-column: 1 / -1; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  }
+
+  /* Hamburger menu button */
+  .menu-btn{
+    position:fixed;
+    top: 18px; right: 18px;
+    z-index: 30;
+    width: 44px; height:44px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.04) inset;
+    transition: background .2s ease, border-color .2s ease, transform .15s ease;
+  }
+  .menu-btn:hover{ background: var(--card-hi); border-color:#3A3A3A; }
+  .menu-btn:active{ transform: scale(.94); }
+  .menu-btn .bars{
+    position:relative;
+    width: 18px; height: 12px;
+  }
+  .menu-btn .bars span{
+    position:absolute;
+    left:0; right:0;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .2s ease, top .3s ease;
+  }
+  .menu-btn .bars span:nth-child(1){ top:0; }
+  .menu-btn .bars span:nth-child(2){ top:5px; }
+  .menu-btn .bars span:nth-child(3){ top:10px; }
+  .menu-btn.open .bars span:nth-child(1){ top:5px; transform: rotate(45deg); }
+  .menu-btn.open .bars span:nth-child(2){ opacity:0; }
+  .menu-btn.open .bars span:nth-child(3){ top:5px; transform: rotate(-45deg); }
+
+  .menu-backdrop{
+    position:fixed; inset:0; z-index:25;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .3s ease;
+  }
+  .menu-backdrop.show{ opacity:1; pointer-events:auto; }
+
+  .menu-drawer{
+    position:fixed;
+    top:0; right:0;
+    height:100%;
+    width: min(280px, 78vw);
+    z-index: 28;
+    background: linear-gradient(180deg, var(--card-hi) 0%, #0B0B0B 100%);
+    border-left: 1px solid var(--border);
+    box-shadow: -20px 0 50px -20px rgba(0,0,0,0.7);
+    transform: translateX(100%);
+    transition: transform .38s cubic-bezier(.16,.84,.24,1);
+    padding: 84px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .menu-drawer.show{ transform: translateX(0); }
+  .menu-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding: 13px 12px;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight:600;
+    text-decoration:none;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor:pointer;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .menu-item:hover{
+    background: rgba(255,255,255,0.04);
+    border-color: var(--border-soft);
+  }
+  .menu-item .ico{
+    width: 18px; text-align:center;
+    color: var(--accent);
+    font-size:15px;
+  }
+  .menu-foot{
+    margin-top:auto;
+    font-size: 11px;
+    color: var(--text-faint);
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:.03em;
+    padding: 10px 12px;
+  }
+
+  /* Modal (menu content / subscription page) */
+  .modal-backdrop{
+    position:fixed; inset:0; z-index:60;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(3px);
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .25s ease;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .modal-backdrop.show{ opacity:1; pointer-events:auto; }
+  .modal-panel{
+    width:100%;
+    max-width: 480px;
+    max-height: 84vh;
+    overflow-y:auto;
+    background: linear-gradient(180deg, var(--card-hi) 0%, #0B0B0B 100%);
+    border: 1px solid var(--border);
+    border-bottom:none;
+    border-radius: 22px 22px 0 0;
+    padding: 22px 22px 30px;
+    transform: translateY(100%);
+    transition: transform .4s cubic-bezier(.16,.84,.24,1);
+    box-shadow: 0 -20px 60px -20px rgba(0,0,0,0.7);
+  }
+  .modal-backdrop.show .modal-panel{ transform: translateY(0); }
+  .modal-handle{
+    width:36px; height:4px;
+    background: var(--border);
+    border-radius:100px;
+    margin: 0 auto 18px;
+  }
+  .modal-title{
+    font-size: 19px;
+    font-weight:800;
+    margin: 0 0 4px;
+    letter-spacing:-0.02em;
+  }
+  .modal-sub{
+    font-size:13px;
+    color: var(--text-dim);
+    margin: 0 0 18px;
+    line-height:1.6;
+  }
+  .modal-close{
+    position:absolute;
+    top:16px; right:16px;
+    width: 30px; height:30px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.06);
+    border:none;
+    color: var(--text-dim);
+    font-size:16px;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:hover{ background: rgba(255,255,255,0.12); color: var(--text); }
+
+  .tip-row{
+    display:flex;
+    gap:12px;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .tip-row:last-child{ border-bottom:none; }
+  .tip-ico{
+    width:32px; height:32px;
+    flex-shrink:0;
+    border-radius:9px;
+    background: rgba(91,127,255,0.1);
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+  }
+  .tip-text b{ display:block; font-size:13.5px; font-weight:700; margin-bottom:2px; }
+  .tip-text span{ font-size:12.5px; color: var(--text-dim); line-height:1.5; }
+
+  /* Wheel time picker */
+  .wheel-picker{
+    position:relative;
+    display:flex;
+    align-items:stretch;
+    justify-content:center;
+    gap:2px;
+    height: 156px;
+    margin: 4px auto 0;
+    max-width: 260px;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  }
+  .wheel-highlight{
+    position:absolute;
+    left:6px; right:6px;
+    top: 56px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(91,127,255,0.14), rgba(91,127,255,0.06));
+    border: 1px solid rgba(91,127,255,0.35);
+    box-shadow: 0 0 0 1px rgba(91,127,255,0.06) inset, 0 4px 18px -6px rgba(91,127,255,0.4);
+    pointer-events:none;
+    z-index:1;
+  }
+  .wheel-fade{
+    position:absolute; left:0; right:0; height:56px;
+    pointer-events:none; z-index:2;
+  }
+  .wheel-fade-top{ top:0; background: linear-gradient(180deg, var(--card-hi), transparent); }
+  .wheel-fade-bottom{ bottom:0; background: linear-gradient(0deg, var(--card), transparent); }
+  .wheel-col{
+    width: 64px;
+    overflow-y:scroll;
+    scroll-snap-type: y mandatory;
+    padding: 56px 0;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .wheel-col::-webkit-scrollbar{ display:none; }
+  .wheel-col-ampm{ width: 58px; }
+  .wheel-col-year{ width: 76px; }
+  #dobPicker{ max-width: 300px; }
+  .wheel-item{
+    height: 44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    scroll-snap-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 17px;
+    font-weight:600;
+    color: var(--text-faint);
+    transition: color .15s ease, font-size .15s ease, transform .15s ease;
+    cursor:pointer;
+    user-select:none;
+  }
+  .wheel-item.selected{
+    color:#fff;
+    font-size: 22px;
+    font-weight:700;
+  }
+  .wheel-sep{
+    display:flex; align-items:center; justify-content:center;
+    width: 10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight:700;
+    color: var(--text-dim);
+    z-index:1;
+  }
+
+  .seo-copy{
+    margin-top: 40px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .seo-h2{
+    font-size: 15.5px;
+    font-weight:800;
+    color: var(--text);
+    margin: 0 0 12px;
+    letter-spacing:-0.01em;
+  }
+  .seo-copy h3{
+    font-size: 12.5px;
+    font-weight:700;
+    color: var(--text);
+    margin: 18px 0 6px;
+    letter-spacing:-0.005em;
+  }
+  .seo-copy h3:first-of-type{ margin-top: 0; }
+  .seo-copy p{
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--text-dim);
+    margin: 0 0 12px;
+  }
+  .seo-copy p:last-child{ margin-bottom:0; }
+  .faq-visible-section h3{ margin-top: 20px; }
+  .faq-visible-section h3:first-of-type{ margin-top: 0; }
+  /* ============ CLASSY BUTTON ANIMATIONS ============ */
+  .ripple{
+    position:absolute;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 55%, transparent 75%);
+    transform: scale(0);
+    pointer-events:none;
+    animation: rippleOut .6s ease-out forwards;
+  }
+  @keyframes rippleOut{
+    to{ transform: scale(1); opacity:0; }
+  }
+
+  .shine-sweep{ position:relative; overflow:hidden; }
+  .shine-sweep::after{
+    content:"";
+    position:absolute; top:0; left:-60%;
+    width:40%; height:100%;
+    background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.25) 55%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left .65s ease;
+    pointer-events:none;
+  }
+  .shine-sweep:hover::after{ left: 120%; }
+
+  /* ============ CALCULATOR SWITCHER ============ */
+  .calc-switcher{
+    display:flex; gap:8px; overflow-x:auto;
+    padding: 2px 2px 14px;
+    margin-bottom: 6px;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .calc-switcher::-webkit-scrollbar{ display:none; }
+  .calc-pill{
+    flex:0 0 auto;
+    padding: 9px 15px;
+    border-radius: 100px;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    color: var(--text-dim);
+    font-family:'Inter', sans-serif;
+    font-size: 13px;
+    font-weight:600;
+    white-space:nowrap;
+    cursor:pointer;
+    transition: all .2s ease;
+  }
+  .calc-pill:hover{ color:var(--text); border-color:#3A3A3A; }
+  .calc-pill.active{
+    background: linear-gradient(180deg, #33449E 0%, #202B68 100%);
+    color:#fff;
+    border-color: transparent;
+    box-shadow: 0 4px 14px var(--accent-glow);
+  }
+  .calc-section[hidden]{ display:none; }
+  .calc-title{ font-size:20px; font-weight:800; margin:8px 0 4px; letter-spacing:-0.02em; }
+  .calc-desc{ font-size:13px; color:var(--text-dim); margin:0 0 18px; }
+  .calc-card{ text-align:left; }
+  .field-row{ margin-bottom:16px; }
+  .field-row:last-child{ margin-bottom:0; }
+  .field-row label{ display:block; font-size:12px; color:var(--text-dim); margin-bottom:8px; font-weight:600; }
+  .num-input, .select-input{
+    width:100%;
+    background: #0A0A0A;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight:600;
+    padding: 12px 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4) inset;
+    color-scheme: dark;
+  }
+  .select-input{ font-family:'Inter', sans-serif; font-weight:500; font-size:14px; }
+  .num-input:focus, .select-input:focus{ outline:2px solid var(--accent); outline-offset:2px; }
+  .result-grid{ display:flex; flex-direction:column; gap:8px; margin-top:18px; }
+  .result-item{
+    display:flex; align-items:center; justify-content:space-between;
+    background: var(--card); border:1px solid var(--border-soft);
+    border-radius:14px; padding:15px 18px;
+  }
+  .result-item.highlight{
+    border-color: rgba(52,211,153,0.35);
+    background: linear-gradient(180deg, rgba(52,211,153,0.07) 0%, var(--card) 100%);
+  }
+  .result-item .rlabel{ font-size:12.5px; color:var(--text-dim); }
+  .result-item .rvalue{ font-family:'JetBrains Mono', monospace; font-size:18px; font-weight:700; color:#fff; }
+</style>
+</head>
+<body>
+
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+
+<div id="introScreen">
+  <div class="intro-vignette"></div>
+  <div class="intro-ring ring1"></div>
+  <div class="intro-ring ring2"></div>
+  <div class="intro-core"></div>
+  <div class="intro-title">SLEEP</div>
+  <div class="intro-plankton-field" id="introPlanktonField"></div>
+</div>
+
+<div class="noise"></div>
+<div class="orb-scene">
+  <div class="ocean-current current1"></div>
+  <div class="ocean-current current2"></div>
+  <div class="plankton-field" id="planktonField"></div>
+</div>
+<div class="motes" id="motes"></div>
+
+<div class="wrap">
+  <header>
+    <div class="badge"><span class="dot"></span>90-MINUTE CYCLE MODEL</div>
+    <h1>Sleep Calculator</h1>
+    <p class="sub">SLPIO's free sleep cycle calculator finds your ideal bedtime or wake-up time in seconds. Sleep runs in ~90-minute cycles — waking mid-cycle leaves you groggy, so timing it right makes the difference.</p>
+  </header>
+
+  <main id="mainContent">
+  <div class="calc-switcher" id="calcSwitcher" role="tablist" aria-label="Choose a calculator">
+    <button class="calc-pill active" data-calc="sleep">🌙 Sleep</button>
+    <button class="calc-pill" data-calc="bmi">⚖️ BMI</button>
+    <button class="calc-pill" data-calc="calories">🔥 Calories</button>
+    <button class="calc-pill" data-calc="water">💧 Water</button>
+    <button class="calc-pill" data-calc="age">🎂 Age</button>
+  </div>
+
+  <section class="calc-section" id="calc-sleep" data-calc-section>
+  <div class="tabs" role="tablist" aria-label="Calculator mode">
+    <button id="btnWake" class="active" role="tab" aria-selected="true">I'm going to sleep now</button>
+    <button id="btnBed" role="tab" aria-selected="false">I need to wake up at</button>
+  </div>
+
+  <div class="card">
+    <label id="timeLabel" for="hourWheel">Set your bedtime</label>
+    <div class="wheel-picker" id="wheelPicker" role="group" aria-label="Time selector">
+      <div class="wheel-highlight"></div>
+      <div class="wheel-fade wheel-fade-top"></div>
+      <div class="wheel-fade wheel-fade-bottom"></div>
+      <div class="wheel-col" id="hourWheel" aria-label="Hour"></div>
+      <div class="wheel-sep">:</div>
+      <div class="wheel-col" id="minWheel" aria-label="Minute"></div>
+      <div class="wheel-col wheel-col-ampm" id="ampmWheel" aria-label="AM or PM"></div>
+    </div>
+    <button class="now-btn" id="nowBtn">Use current time</button>
+  </div>
+
+  <h2 class="list-label" id="listLabel">Wake up at one of these times</h2>
+  <div id="optionsList"></div>
+
+  <p class="note" id="resultNote"></p>
+  </section>
+
+  <section class="calc-section" id="calc-bmi" data-calc-section hidden>
+    <h2 class="calc-title">BMI Calculator</h2>
+    <p class="calc-desc">Body Mass Index from your height and weight.</p>
+    <div class="card calc-card">
+      <div class="field-row">
+        <label for="heightInput">Height (cm)</label>
+        <input type="number" id="heightInput" class="num-input" value="170" min="50" max="250">
+      </div>
+      <div class="field-row">
+        <label for="weightInput">Weight (kg)</label>
+        <input type="number" id="weightInput" class="num-input" value="65" min="20" max="300">
+      </div>
+    </div>
+    <div class="result-grid" id="bmiResult"></div>
+  </section>
+
+  <section class="calc-section" id="calc-calories" data-calc-section hidden>
+    <h2 class="calc-title">Calorie Calculator</h2>
+    <p class="calc-desc">Estimated daily calorie needs (Mifflin-St Jeor formula).</p>
+    <div class="card calc-card">
+      <div class="field-row">
+        <label for="calAge">Age</label>
+        <input type="number" id="calAge" class="num-input" value="28" min="10" max="100">
+      </div>
+      <div class="field-row">
+        <label for="calGender">Sex</label>
+        <select id="calGender" class="select-input">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <label for="calHeight">Height (cm)</label>
+        <input type="number" id="calHeight" class="num-input" value="170" min="50" max="250">
+      </div>
+      <div class="field-row">
+        <label for="calWeight">Weight (kg)</label>
+        <input type="number" id="calWeight" class="num-input" value="65" min="20" max="300">
+      </div>
+      <div class="field-row">
+        <label for="calActivity">Activity level</label>
+        <select id="calActivity" class="select-input">
+          <option value="1.2">Sedentary</option>
+          <option value="1.375" selected>Light activity</option>
+          <option value="1.55">Moderate activity</option>
+          <option value="1.725">Very active</option>
+        </select>
+      </div>
+    </div>
+    <div class="result-grid" id="caloriesResult"></div>
+  </section>
+
+  <section class="calc-section" id="calc-water" data-calc-section hidden>
+    <h2 class="calc-title">Water Intake Calculator</h2>
+    <p class="calc-desc">A general daily hydration target based on your weight and activity.</p>
+    <div class="card calc-card">
+      <div class="field-row">
+        <label for="waterWeightInput">Weight (kg)</label>
+        <input type="number" id="waterWeightInput" class="num-input" value="65" min="20" max="300">
+      </div>
+      <div class="field-row">
+        <label for="activitySelect">Activity level</label>
+        <select id="activitySelect" class="select-input">
+          <option value="0.03">Sedentary — little exercise</option>
+          <option value="0.035" selected>Moderate — exercise 3–4x/week</option>
+          <option value="0.045">Active — daily exercise</option>
+        </select>
+      </div>
+    </div>
+    <div class="result-grid" id="waterResult"></div>
+  </section>
+
+  <section class="calc-section" id="calc-age" data-calc-section hidden>
+    <h2 class="calc-title">Age Calculator</h2>
+    <p class="calc-desc">Find your exact age in years, months, and days.</p>
+    <div class="card calc-card" style="text-align:center;">
+      <label style="text-align:left;">Date of birth</label>
+      <div class="wheel-picker" id="dobPicker" role="group" aria-label="Date of birth selector">
+        <div class="wheel-highlight"></div>
+        <div class="wheel-fade wheel-fade-top"></div>
+        <div class="wheel-fade wheel-fade-bottom"></div>
+        <div class="wheel-col" id="dobDayWheel" aria-label="Day"></div>
+        <div class="wheel-sep">/</div>
+        <div class="wheel-col" id="dobMonthWheel" aria-label="Month"></div>
+        <div class="wheel-sep">/</div>
+        <div class="wheel-col wheel-col-year" id="dobYearWheel" aria-label="Year"></div>
+      </div>
+    </div>
+    <div class="result-grid" id="ageResult"></div>
+  </section>
+
+  <section class="seo-copy">
+    <h2 class="seo-h2">What is a sleep calculator?</h2>
+    <p>A sleep calculator is a tool that works out the best time to fall asleep or wake up based on how sleep actually functions — not a flat "get 8 hours" rule. SLPIO's sleep calculator (you might also search for it as a sleep calc, sleep cycle calculator, or simply "calculator sleep") counts in 90-minute sleep cycles, so the times it suggests land you at a natural break between cycles instead of in the middle of deep sleep.</p>
+
+    <h3>Why 90-minute sleep cycles matter</h3>
+    <p>Sleep isn't one continuous state — it moves through light sleep, deep sleep, and REM in cycles that last roughly 90 minutes each. Waking up in the middle of a cycle, especially deep sleep, is what causes that groggy, disoriented feeling known as sleep inertia. This sleep cycle calculator works backward or forward from a chosen time in 90-minute increments so you land on a wake-up point between cycles instead of inside one.</p>
+
+    <h3>How to use this bedtime calculator</h3>
+    <p>Choose "I'm going to sleep now" and enter your bedtime to see recommended wake-up times, or choose "I need to wake up at" and enter your alarm time to see recommended bedtimes. Each option shows the number of full sleep cycles and total sleep duration, with 5–6 cycles (7.5–9 hours) highlighted as the ideal range for most adults.</p>
+
+    <h3>Built on published sleep research</h3>
+    <p>The 90-minute cycle average and the 14-minute average time to fall asleep used by this sleepcalculator are both drawn from commonly cited sleep science, not guesswork. That said, individual cycle length varies, so treat the results as a strong, evidence-based starting point rather than an exact prescription — see our Disclaimer for details.</p>
+
+    <h3>More free calculators on this page</h3>
+    <p>Beyond sleep timing, this page also includes a BMI calculator, a daily calorie (BMR/TDEE) calculator, a water intake estimator, and an exact age calculator — use the switcher above to jump between them, all free and with no sign-up required.</p>
+  </section>
+
+  <section class="seo-copy faq-visible-section" id="faqSection">
+    <h2 class="seo-h2">Frequently asked questions</h2>
+
+    <h3>What does a sleep calculator do?</h3>
+    <p>A sleep calculator estimates the best time to go to bed or wake up by counting in 90-minute sleep cycles, so you're more likely to wake up between cycles instead of in the middle of deep sleep.</p>
+
+    <h3>How accurate is this sleep cycle calculator?</h3>
+    <p>This sleep cycle calculator uses the widely cited 90-minute average cycle length plus a 14-minute average time to fall asleep. Actual cycle length varies by person, so treat the results as a strong starting point rather than an exact science.</p>
+
+    <h3>Is this sleep calculator free to use?</h3>
+    <p>Yes. SLPIO's sleep calculator, along with the BMI, calorie, water intake, and age calculators on the same page, are completely free with no sign-up required.</p>
+
+    <h3>How many sleep cycles should I aim for each night?</h3>
+    <p>Most adults feel most rested after 5 to 6 full sleep cycles, which works out to roughly 7.5 to 9 hours of sleep.</p>
+
+    <h3>Does the sleep calculator store my data?</h3>
+    <p>No. The calculator runs entirely in your browser, and the time you enter is never sent to or stored on a server. See our Privacy Policy for details.</p>
+  </section>
+  </main>
+</div>
+
+<button class="menu-btn" id="menuBtn" aria-label="Menu">
+  <span class="bars"><span></span><span></span><span></span></span>
+</button>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<nav class="menu-drawer" id="menuDrawer">
+  <a class="menu-item" href="#" data-action="about"><span class="ico">◐</span> How this works</a>
+  <a class="menu-item" href="#" data-action="cycles"><span class="ico">↻</span> About sleep cycles</a>
+  <a class="menu-item" href="#" data-action="tips"><span class="ico">✓</span> Sleep hygiene tips</a>
+  <a class="menu-item" href="#" data-action="fitness"><span class="ico">♥</span> Healthy living guide</a>
+  <a class="menu-item" href="#" data-action="reset"><span class="ico">↺</span> Reset time</a>
+  <div class="menu-foot">SLEEP CALCULATOR · V1</div>
+</nav>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-panel" id="modalPanel">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-handle"></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        Sleep Calculator
+      </div>
+      <p class="footer-tagline">A simple tool to find your best bedtime or wake-up time, based on 90-minute sleep cycles.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Product</h3>
+      <a href="#" data-action="about">How it works</a>
+      <a href="#" data-action="cycles">Sleep cycles</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <a href="#faqSection">FAQ</a>
+      <a href="#" data-action="tips">Sleep hygiene tips</a>
+      <a href="#" data-action="fitness">Healthy living guide</a>
+      <a href="#" data-action="reset">Reset calculator</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Company</h3>
+      <a href="#" data-action="aboutus">About us</a>
+      <a href="#" data-action="contact">Contact</a>
+      <a href="#" data-action="privacy">Privacy policy</a>
+      <a href="#" data-action="terms">Terms &amp; Conditions</a>
+      <a href="#" data-action="disclaimer">Disclaimer</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="footerYear"></span> Sleep Calculator. All rights reserved.</span>
+    <span class="footer-meta">EACH CYCLE ≈ 90 MIN · 14 MIN ADDED TO FALL ASLEEP</span>
+  </div>
+</footer>
+
+<script>
+  // pause decorative background animations when tab is hidden (saves battery/CPU,
+  // prevents jank when switching back)
+  document.addEventListener('visibilitychange', () => {
+    document.body.classList.toggle('bg-paused', document.hidden);
+  });
+
+  // hamburger menu
+  const menuBtn = document.getElementById('menuBtn');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  const menuDrawer = document.getElementById('menuDrawer');
+
+  function openMenu(){
+    menuBtn.classList.add('open');
+    menuBackdrop.classList.add('show');
+    menuDrawer.classList.add('show');
+  }
+  function closeMenu(){
+    menuBtn.classList.remove('open');
+    menuBackdrop.classList.remove('show');
+    menuDrawer.classList.remove('show');
+  }
+  menuBtn.addEventListener('click', () => {
+    menuDrawer.classList.contains('show') ? closeMenu() : openMenu();
+  });
+  menuBackdrop.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+
+  // modal system
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const modalBody = document.getElementById('modalBody');
+  const modalClose = document.getElementById('modalClose');
+
+  function openModal(html){
+    modalBody.innerHTML = html;
+    modalBackdrop.classList.add('show');
+  }
+  function closeModal(){ modalBackdrop.classList.remove('show'); }
+  modalClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', (e) => { if(e.target === modalBackdrop) closeModal(); });
+
+  const modalContent = {
+    about: {
+      title: 'How this works',
+      sub: 'The math behind the recommendation.',
+      body: `
+        <div class="tip-row"><div class="tip-ico">①</div><div class="tip-text"><b>Pick a mode</b><span>Tell it when you're going to bed, or when you need to wake up.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">②</div><div class="tip-text"><b>90-minute math</b><span>Sleep moves through light, deep, and REM stages in cycles of about 90 minutes.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">③</div><div class="tip-text"><b>14-minute buffer</b><span>Average time to fall asleep is added when counting forward from bedtime.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">④</div><div class="tip-text"><b>Best window</b><span>5–6 full cycles (7.5–9 hours) is highlighted since it avoids waking mid-cycle.</span></div></div>
+      `
+    },
+    cycles: {
+      title: 'About sleep cycles',
+      sub: 'Why timing matters more than just hours.',
+      body: `
+        <div class="tip-row"><div class="tip-ico">🌙</div><div class="tip-text"><b>Light sleep</b><span>The entry stage — easy to wake from, muscles start to relax.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">🌑</div><div class="tip-text"><b>Deep sleep</b><span>Body repair and immune function happen here. Hard to wake from.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">💭</div><div class="tip-text"><b>REM sleep</b><span>Dreaming and memory consolidation. Cycles get REM-heavier toward morning.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">⏱️</div><div class="tip-text"><b>Why 90 minutes</b><span>Waking between cycles (not mid-cycle) is what makes you feel rested, not just total hours.</span></div></div>
+      `
+    },
+    tips: {
+      title: 'Sleep hygiene tips',
+      sub: 'Small habits that make the calculator actually work.',
+      body: `
+        <div class="tip-row"><div class="tip-ico">📵</div><div class="tip-text"><b>Screens off, 30 min before bed</b><span>Blue light delays melatonin release.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">🕰️</div><div class="tip-text"><b>Same time, every day</b><span>Even on weekends — this stabilizes your body clock faster than anything else.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">☕</div><div class="tip-text"><b>Cut caffeine after 2pm</b><span>Caffeine has a 5–6 hour half-life, it lingers longer than it feels.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">🌡️</div><div class="tip-text"><b>Cool, dark, quiet room</b><span>Around 18–20°C is the sweet spot for most people.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">🚶</div><div class="tip-text"><b>Get daylight early</b><span>Morning light exposure anchors your circadian rhythm.</span></div></div>
+      `
+    },
+    fitness: {
+      title: 'Healthy living guide',
+      sub: 'Sleep is one piece — here is the fuller picture.',
+      body: `
+        <div class="tip-row"><div class="tip-ico">🏃</div><div class="tip-text"><b>Move daily</b><span>150 min/week of moderate activity — even brisk walking counts.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">🥗</div><div class="tip-text"><b>Eat whole foods most of the time</b><span>Prioritize protein, fibre, and vegetables over ultra-processed food.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">💧</div><div class="tip-text"><b>Hydrate consistently</b><span>Mild dehydration alone can worsen sleep quality and daytime fatigue.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">🧘</div><div class="tip-text"><b>Manage stress deliberately</b><span>Even 5 minutes of breathing or stretching before bed lowers cortisol.</span></div></div>
+        <div class="tip-row"><div class="tip-ico">📵</div><div class="tip-text"><b>Protect recovery time</b><span>Rest days and sleep are training, not the absence of it.</span></div></div>
+      `
+    },
+    aboutus: {
+      title: 'About Us',
+      sub: 'Welcome to Sleep Calculator.',
+      body: `
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 14px;">Sleep Calculator is a free online tool designed to help people find the best bedtime and wake-up time based on natural 90-minute sleep cycles.</p>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">Our goal is simple: help users wake up feeling more refreshed by providing easy-to-use sleep timing recommendations.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">What We Offer</div>
+        <ul style="margin:0 0 18px; padding-left:18px;">
+          <li style="font-size:13.5px; line-height:1.8; color:var(--text-dim);">Sleep Cycle Calculator</li>
+          <li style="font-size:13.5px; line-height:1.8; color:var(--text-dim);">Bedtime Calculator</li>
+          <li style="font-size:13.5px; line-height:1.8; color:var(--text-dim);">Wake-Up Time Calculator</li>
+          <li style="font-size:13.5px; line-height:1.8; color:var(--text-dim);">Healthy Sleep Tips</li>
+          <li style="font-size:13.5px; line-height:1.8; color:var(--text-dim);">Sleep Hygiene Guidance</li>
+          <li style="font-size:13.5px; line-height:1.8; color:var(--text-dim);">Free Access on Any Device</li>
+        </ul>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Our Mission</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">We believe that better sleep leads to better health, better focus, and a better quality of life. That's why we created a simple and accessible sleep calculator that anyone can use for free.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Disclaimer</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">The information provided on this website is for educational and informational purposes only. It is not intended to replace professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional regarding any medical concerns.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Contact Us</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">If you have any questions, suggestions, or feedback, feel free to contact us.<br>Email: <a href="mailto:kiddosiam4@gmail.com" style="color:#8FA3FF;">kiddosiam4@gmail.com</a></p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Privacy First</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0;">We respect user privacy and do not sell personal information to third parties.</p>
+      `
+    },
+    contact: {
+      title: 'Contact Us',
+      sub: 'Questions, feedback, or suggestions — we read every message.',
+      body: `
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">If you have any questions, suggestions, or feedback about Sleep Calculator, feel free to reach out anytime.</p>
+        <div style="background:#0A0A0A; border:1px solid var(--border); border-radius:12px; padding:16px 18px; margin-bottom:6px;">
+          <div style="font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Email</div>
+          <a href="mailto:kiddosiam4@gmail.com" style="font-size:15px; font-weight:700; color:#fff; text-decoration:none;">kiddosiam4@gmail.com</a>
+        </div>
+      `
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      sub: "What this site collects, and what it doesn't.",
+      body: `
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 14px;">This Privacy Policy explains what information Sleep Calculator ("we", "this site") collects when you use it.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Information We Collect</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">The sleep calculator runs entirely in your browser. The time you enter is never sent to or stored on any server. If you email us via the Contact section, we only see what you choose to send us directly.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Cookies &amp; Advertising</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">If this site displays ads (e.g. Google AdSense), third-party cookies may be used to show relevant ads based on your visits to this and other sites. You can opt out of personalized ads via <a href="https://adssettings.google.com" style="color:#8FA3FF;">Google Ads Settings</a>.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Your Choices</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">You can clear cookies in your browser at any time, or disable them in your browser settings.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Contact</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0;">Questions about this policy? Email <a href="mailto:kiddosiam4@gmail.com" style="color:#8FA3FF;">kiddosiam4@gmail.com</a>.</p>
+      `
+    },
+    terms: {
+      title: 'Terms & Conditions',
+      sub: 'The basics of using this site.',
+      body: `
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 14px;">By using Sleep Calculator, you agree to the following. If you don't agree, please don't use this site.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Use of the Site</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">This site provides a free sleep cycle calculator and related content for personal use. You may not copy, scrape, or redistribute the site's code or content without permission.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">No Professional Advice</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">Nothing on this site is medical advice. See the Disclaimer for details.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Limitation of Liability</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0;">Use of this site is at your own risk. We are not liable for decisions made based on calculator results.</p>
+      `
+    },
+    disclaimer: {
+      title: 'Disclaimer',
+      sub: 'Please read before relying on any result.',
+      body: `
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Not Medical Advice</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">The sleep calculator on this site uses a general 90-minute cycle average and a 14-minute average time to fall asleep. These are estimates, not diagnoses, and don't account for your individual health history.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">Consult a Professional</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0 0 18px;">Always consult a qualified physician before making significant changes to your sleep schedule, especially if you have an existing health condition or ongoing sleep difficulties.</p>
+
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;">No Liability</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-dim); margin:0;">Use of this calculator is at your own risk. Sleep Calculator is not liable for outcomes based on information provided here.</p>
+      `
+    }
+  };
+
+  function showModalFor(key){
+    const c = modalContent[key];
+    if(!c) return;
+    openModal(`<h2 class="modal-title">${c.title}</h2><p class="modal-sub">${c.sub}</p>${c.body}`);
+  }
+
+  document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const action = item.dataset.action;
+      if(action === 'reset'){ setNow(); render(); closeMenu(); return; }
+      showModalFor(action);
+      closeMenu();
+    });
+  });
+
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('footer [data-action]').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const action = item.dataset.action;
+      if(action === 'reset'){ setNow(); render(); return; }
+      showModalFor(action);
+    });
+  });
+
+  // bioluminescent plankton particles
+  const planktonHost = document.getElementById('planktonField');
+  if(planktonHost){
+    const planktonCount = 14;
+    for(let i=0;i<planktonCount;i++){
+      const p = document.createElement('div');
+      p.className = 'plankton';
+      p.style.left = Math.random()*100 + '%';
+      const size = (Math.random()*3 + 2).toFixed(1);
+      p.style.width = size+'px';
+      p.style.height = size+'px';
+      p.style.setProperty('--drift', (Math.random()*80-40)+'px');
+      const dur = (Math.random()*16 + 12).toFixed(1);
+      p.style.animationDuration = dur+'s';
+      p.style.animationDelay = (Math.random()*-dur).toFixed(1)+'s';
+      planktonHost.appendChild(p);
+    }
+  }
+
+  // drifting motes
+  const moteHost = document.getElementById('motes');
+  const moteCount = 12;
+  for(let i=0;i<moteCount;i++){
+    const mo = document.createElement('div');
+    mo.className = 'mote';
+    mo.style.left = Math.random()*100 + '%';
+    const size = (Math.random()*1.8 + 1).toFixed(1);
+    mo.style.width = size+'px';
+    mo.style.height = size+'px';
+    mo.style.setProperty('--drift', (Math.random()*60-30)+'px');
+    const dur = (Math.random()*14 + 14).toFixed(1);
+    mo.style.animationDuration = dur+'s';
+    mo.style.animationDelay = (Math.random()*-dur).toFixed(1)+'s';
+    moteHost.appendChild(mo);
+  }
+
+  // boot intro — rising plankton converging toward center
+  const introPlanktonHost = document.getElementById('introPlanktonField');
+  const introPlanktonCount = 10;
+  for(let i=0;i<introPlanktonCount;i++){
+    const p = document.createElement('div');
+    p.className = 'intro-plankton';
+    const size = (Math.random()*3 + 2).toFixed(1);
+    p.style.width = size+'px';
+    p.style.height = size+'px';
+    const leftPct = 50 + (Math.random()*70 - 35);
+    p.style.left = leftPct + '%';
+    p.style.animationDelay = (Math.random()*0.8) + 's';
+    p.style.animationDuration = (1.6 + Math.random()*0.8) + 's';
+    introPlanktonHost.appendChild(p);
+  }
+
+  const introEl = document.getElementById('introScreen');
+  const wrapEl = document.querySelector('.wrap');
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      introEl.classList.add('hide');
+      wrapEl.classList.add('reveal');
+      setTimeout(() => introEl.remove(), 600);
+    }, 1900);
+  });
+</script>
+
+<script>
+  // calculator switcher
+  const calcSwitcher = document.getElementById('calcSwitcher');
+  if(calcSwitcher){
+    const pills = calcSwitcher.querySelectorAll('.calc-pill');
+    const sections = document.querySelectorAll('[data-calc-section]');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const key = pill.dataset.calc;
+        sections.forEach(sec => { sec.hidden = (sec.id !== 'calc-' + key); });
+      });
+    });
+  }
+
+  // BMI Calculator
+  (function initBMI(){
+    const h = document.getElementById('heightInput');
+    const w = document.getElementById('weightInput');
+    const out = document.getElementById('bmiResult');
+    if(!h || !w || !out) return;
+    function render(){
+      const heightM = (Number(h.value)||0) / 100;
+      const weightKg = Number(w.value)||0;
+      if(heightM <= 0){ out.innerHTML = ''; return; }
+      const bmi = weightKg / (heightM*heightM);
+      let category = 'Normal weight';
+      if(bmi < 18.5) category = 'Underweight';
+      else if(bmi < 25) category = 'Normal weight';
+      else if(bmi < 30) category = 'Overweight';
+      else category = 'Obese';
+      out.innerHTML = `
+        <div class="result-item highlight"><span class="rlabel">Your BMI</span><span class="rvalue">${bmi.toFixed(1)}</span></div>
+        <div class="result-item"><span class="rlabel">Category</span><span class="rvalue">${category}</span></div>
+      `;
+    }
+    h.addEventListener('input', render);
+    w.addEventListener('input', render);
+    render();
+  })();
+
+  // Calorie Calculator (Mifflin-St Jeor)
+  (function initCalories(){
+    const age = document.getElementById('calAge');
+    const gender = document.getElementById('calGender');
+    const height = document.getElementById('calHeight');
+    const weight = document.getElementById('calWeight');
+    const activity = document.getElementById('calActivity');
+    const out = document.getElementById('caloriesResult');
+    if(!age || !out) return;
+    function render(){
+      const a = Number(age.value)||0;
+      const h = Number(height.value)||0;
+      const w = Number(weight.value)||0;
+      const isMale = gender.value === 'male';
+      const bmr = 10*w + 6.25*h - 5*a + (isMale ? 5 : -161);
+      const tdee = bmr * Number(activity.value);
+      out.innerHTML = `
+        <div class="result-item"><span class="rlabel">BMR (resting)</span><span class="rvalue">${Math.round(bmr)} kcal</span></div>
+        <div class="result-item highlight"><span class="rlabel">Daily maintenance (TDEE)</span><span class="rvalue">${Math.round(tdee)} kcal</span></div>
+        <div class="result-item"><span class="rlabel">Mild weight loss</span><span class="rvalue">${Math.round(tdee-500)} kcal</span></div>
+        <div class="result-item"><span class="rlabel">Mild weight gain</span><span class="rvalue">${Math.round(tdee+500)} kcal</span></div>
+      `;
+    }
+    [age, gender, height, weight, activity].forEach(el => el.addEventListener('input', render));
+    render();
+  })();
+
+  // Water Intake Calculator
+  (function initWater(){
+    const w = document.getElementById('waterWeightInput');
+    const act = document.getElementById('activitySelect');
+    const out = document.getElementById('waterResult');
+    if(!w || !act || !out) return;
+    function render(){
+      const weightKg = Number(w.value)||0;
+      const factor = Number(act.value);
+      const liters = weightKg * factor;
+      const cups = liters * 4.227;
+      out.innerHTML = `
+        <div class="result-item highlight"><span class="rlabel">Daily target</span><span class="rvalue">${liters.toFixed(1)} L</span></div>
+        <div class="result-item"><span class="rlabel">In cups (~237ml)</span><span class="rvalue">${Math.round(cups)} cups</span></div>
+      `;
+    }
+    w.addEventListener('input', render);
+    act.addEventListener('change', render);
+    render();
+  })();
+
+  // Age Calculator
+  (function initAge(){
+    const dayWheel = document.getElementById('dobDayWheel');
+    const monthWheel = document.getElementById('dobMonthWheel');
+    const yearWheel = document.getElementById('dobYearWheel');
+    const out = document.getElementById('ageResult');
+    if(!dayWheel || !monthWheel || !yearWheel || !out) return;
+
+    const ITEM_H = 44;
+    const days31 = Array.from({length:31}, (_,i) => (i+1).toString());
+    const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const thisYear = new Date().getFullYear();
+    const years = Array.from({length: 110}, (_,i) => (thisYear - i).toString());
+
+    let selDay = 1, selMonth = 0, selYear = thisYear - 25;
+    const scrollEndTimers = {};
+
+    function buildWheel(container, values, onSelect){
+      container.innerHTML = '';
+      values.forEach(v => {
+        const div = document.createElement('div');
+        div.className = 'wheel-item';
+        div.textContent = v;
+        div.addEventListener('click', () => {
+          const idx = values.indexOf(v);
+          container.scrollTo({ top: idx*ITEM_H, behavior:'smooth' });
+        });
+        container.appendChild(div);
+      });
+      container.addEventListener('scroll', () => {
+        clearTimeout(scrollEndTimers[container.id]);
+        scrollEndTimers[container.id] = setTimeout(() => {
+          const idx = Math.round(container.scrollTop / ITEM_H);
+          const clamped = Math.max(0, Math.min(values.length-1, idx));
+          if(container.scrollTop !== clamped*ITEM_H){
+            container.scrollTo({ top: clamped*ITEM_H, behavior:'smooth' });
+          }
+          highlightSelected(container, clamped);
+          onSelect(values[clamped], clamped);
+          render();
+        }, 120);
+      });
+    }
+    function highlightSelected(container, idx){
+      [...container.children].forEach((el,i) => el.classList.toggle('selected', i===idx));
+    }
+    function scrollToValue(container, values, val){
+      const idx = values.indexOf(val.toString());
+      if(idx < 0) return;
+      container.scrollTo({ top: idx*ITEM_H, behavior:'auto' });
+      highlightSelected(container, idx);
+    }
+
+    buildWheel(dayWheel, days31, v => selDay = Number(v));
+    buildWheel(monthWheel, monthNames, (v, idx) => selMonth = idx);
+    buildWheel(yearWheel, years, v => selYear = Number(v));
+
+    scrollToValue(dayWheel, days31, selDay);
+    scrollToValue(monthWheel, monthNames, monthNames[selMonth]);
+    scrollToValue(yearWheel, years, selYear);
+
+    function render(){
+      const birth = new Date(selYear, selMonth, selDay);
+      const now = new Date();
+      if(birth > now){ out.innerHTML = '<div class="result-item"><span class="rlabel">Pick a past date</span></div>'; return; }
+      let yrs = now.getFullYear() - birth.getFullYear();
+      let mos = now.getMonth() - birth.getMonth();
+      let dys = now.getDate() - birth.getDate();
+      if(dys < 0){ mos--; dys += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+      if(mos < 0){ yrs--; mos += 12; }
+      const totalDays = Math.floor((now - birth) / 86400000);
+      out.innerHTML = `
+        <div class="result-item highlight"><span class="rlabel">Your age</span><span class="rvalue">${yrs}y ${mos}m ${dys}d</span></div>
+        <div class="result-item"><span class="rlabel">Total days lived</span><span class="rvalue">${totalDays.toLocaleString()}</span></div>
+      `;
+    }
+    render();
+  })();
+</script>
+
+<script>
+  let mode = 'wake';
+  const timeLabel = document.getElementById('timeLabel');
+  const listLabel = document.getElementById('listLabel');
+  const optionsList = document.getElementById('optionsList');
+  const resultNote = document.getElementById('resultNote');
+  const btnWake = document.getElementById('btnWake');
+  const btnBed = document.getElementById('btnBed');
+
+  // ---- Wheel picker ----
+  const ITEM_H = 44;
+  const hourWheel = document.getElementById('hourWheel');
+  const minWheel = document.getElementById('minWheel');
+  const ampmWheel = document.getElementById('ampmWheel');
+
+  const hours12 = Array.from({length:12}, (_,i) => i+1); // 1..12
+  const minutes60 = Array.from({length:60}, (_,i) => i.toString().padStart(2,'0'));
+  const ampmVals = ['AM','PM'];
+
+  let selHour = 12, selMinute = 0, selAmpm = 'AM';
+  let scrollEndTimers = {};
+
+  function buildWheel(container, values, onSelect, formatFn){
+    container.innerHTML = '';
+    values.forEach(v => {
+      const div = document.createElement('div');
+      div.className = 'wheel-item';
+      div.textContent = formatFn ? formatFn(v) : v;
+      div.addEventListener('click', () => {
+        const idx = values.indexOf(v);
+        container.scrollTo({ top: idx*ITEM_H, behavior:'smooth' });
+      });
+      container.appendChild(div);
+    });
+    container.addEventListener('scroll', () => {
+      clearTimeout(scrollEndTimers[container.id]);
+      scrollEndTimers[container.id] = setTimeout(() => {
+        const idx = Math.round(container.scrollTop / ITEM_H);
+        const clamped = Math.max(0, Math.min(values.length-1, idx));
+        if(container.scrollTop !== clamped*ITEM_H){
+          container.scrollTo({ top: clamped*ITEM_H, behavior:'smooth' });
+        }
+        highlightSelected(container, clamped);
+        onSelect(values[clamped]);
+        render();
+      }, 120);
+    });
+  }
+
+  function highlightSelected(container, idx){
+    [...container.children].forEach((el,i) => el.classList.toggle('selected', i===idx));
+  }
+
+  function scrollToValue(container, values, val, instant){
+    const idx = values.indexOf(val);
+    if(idx < 0) return;
+    container.scrollTo({ top: idx*ITEM_H, behavior: instant ? 'auto' : 'smooth' });
+    highlightSelected(container, idx);
+  }
+
+  buildWheel(hourWheel, hours12, v => selHour = v);
+  buildWheel(minWheel, minutes60, v => selMinute = Number(v));
+  buildWheel(ampmWheel, ampmVals, v => selAmpm = v);
+
+  function setNow(){
+    const now = new Date();
+    let h = now.getHours();
+    selAmpm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12; if(h === 0) h = 12;
+    selHour = h;
+    selMinute = now.getMinutes();
+
+    scrollToValue(hourWheel, hours12, selHour, true);
+    scrollToValue(minWheel, minutes60, selMinute.toString().padStart(2,'0'), true);
+    scrollToValue(ampmWheel, ampmVals, selAmpm, true);
+  }
+  setNow();
+
+  document.getElementById('nowBtn').addEventListener('click', () => { setNow(); render(); });
+
+  function getSelectedDate(){
+    let h = selHour % 12;
+    if(selAmpm === 'PM') h += 12;
+    const d = new Date();
+    d.setHours(h, selMinute, 0, 0);
+    return d;
+  }
+
+  btnWake.addEventListener('click', () => {
+    mode = 'wake';
+    btnWake.classList.add('active');
+    btnBed.classList.remove('active');
+    timeLabel.textContent = 'Set your bedtime';
+    listLabel.textContent = 'Wake up at one of these times';
+    render();
+  });
+  btnBed.addEventListener('click', () => {
+    mode = 'bed';
+    btnBed.classList.add('active');
+    btnWake.classList.remove('active');
+    timeLabel.textContent = 'Set your wake-up time';
+    listLabel.textContent = 'Fall asleep at one of these times';
+    render();
+  });
+
+  const FALL_ASLEEP = 14;
+  const CYCLE = 90;
+
+  function fmtTime(d){
+    let h = d.getHours();
+    const m = d.getMinutes();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12; if(h===0) h = 12;
+    const mm = m.toString().padStart(2,'0');
+    return `${h}:${mm} ${ampm}`;
+  }
+  function fmtDuration(mins){
+    const h = Math.floor(mins/60);
+    const m = mins%60;
+    return m ? `${h}h ${m}m` : `${h}h`;
+  }
+
+  function render(){
+    optionsList.innerHTML = '';
+    const base = getSelectedDate();
+
+    const cycles = [6,5,4,3];
+    cycles.forEach(c => {
+      const totalMin = c*CYCLE + (mode==='wake' ? FALL_ASLEEP : 0);
+      const t = new Date(base.getTime() + (mode==='wake' ? 1 : -1) * totalMin*60000);
+      const isBest = (c === 5 || c === 6);
+
+      const row = document.createElement('div');
+      row.className = 'option' + (isBest ? ' best' : '');
+      row.innerHTML = `
+        <div class="left">
+          <span class="time">${fmtTime(t)}</span>
+          <span class="meta">${c} cycles · ${fmtDuration(c*CYCLE)}</span>
+        </div>
+        ${isBest ? '<span class="tag">Recommended</span>' : ''}
+      `;
+      optionsList.appendChild(row);
+    });
+
+    resultNote.innerHTML = mode==='wake'
+      ? `Assumes it takes about <b>14 minutes</b> to fall asleep. Aim for <b>5 or 6 cycles</b> (7.5–9 hours) to wake up feeling rested.`
+      : `Calculated backward from your wake-up time, without the fall-asleep buffer — so go to bed a little before the time shown. <b>5 or 6 cycles</b> give the best rest.`;
+  }
+
+  render();
+</script>
+
+<script>
+  // Universal classy ripple effect on buttons, tabs, menu items, footer links
+  const RIPPLE_SELECTOR = '.tabs button, .menu-btn, .now-btn, .footer-col a, .menu-item, .modal-close, .calc-pill';
+
+  function addRipple(e){
+    const el = e.currentTarget;
+    const computed = getComputedStyle(el).position;
+    if(computed === 'static'){ el.style.position = 'relative'; }
+    el.style.overflow = 'hidden';
+    const rect = el.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 1.6;
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+    ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+    el.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  }
+
+  document.querySelectorAll(RIPPLE_SELECTOR).forEach(el => {
+    el.addEventListener('click', addRipple);
+  });
+
+  // Also catch dynamically-created option rows (wake/bed time results)
+  document.getElementById('optionsList').addEventListener('click', (e) => {
+    const row = e.target.closest('.option');
+    if(!row) return;
+    addRipple({ currentTarget: row, clientX: e.clientX, clientY: e.clientY });
+  });
+</script>
+
+</body>
+</html>
